@@ -1,0 +1,85 @@
+CREATE TABLE customer(
+id serial PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+sex CHAR(1) NOT NULL,
+phonenumber CHAR(10) NOT NULL,
+email VARCHAR(30),
+company VARCHAR(30)
+)
+
+
+
+ALTER TABLE customer
+ALTER COLUMN email TYPE VARCHAR(50),
+ALTER COLUMN company TYPE VARCHAR(50);
+
+
+
+/* Insert sample data into the customer table */
+INSERT INTO customer (firstname, lastname, sex, phonenumber, email, company) VALUES
+('Aarav','Sharma','M','9876543210','aarav.sharma@example.com','TechCorp'),
+('Isha','Verma','F','9123456780','isha.verma@example.com','HealthPlus'),
+('Rohan','Mehta','M','9988776655','rohan.mehta@example.com','FinServe'),
+('Ananya','Reddy','F','9090909090','ananya.reddy@example.com','EduWorld'),
+('Karan','Gupta','M','9876501234','karan.gupta@example.com','BuildPro'),
+('Priya','Nair','F','9123004567','priya.nair@example.com','MediLife'),
+('Aditya','Singh','M','9345678901','aditya.singh@example.com','GreenEnergy'),
+('Sneha','Kapoor','F','9456123789','sneha.kapoor@example.com','Foodies'),
+('Vikram','Iyer','M','9765432109','vikram.iyer@example.com','TravelX'),
+('Neha','Patel','F','9321456780','neha.patel@example.com','DesignHub'),
+
+('Raj','Rao','M','9234567890','raj.rao@example.com','NextGen'),
+('Meera','Chopra','F','9567890123','meera.chopra@example.com','FinTrack'),
+('Sahil','Desai','M','9654321870','sahil.desai@example.com','AgriTech'),
+('Kavya','Pillai','F','9789012345','kavya.pillai@example.com','MediCare'),
+('Manish','Kulkarni','M','9768901234','manish.kulkarni@example.com','AutoMob'),
+('Diya','Bansal','F','9345098761','diya.bansal@example.com','CloudSoft'),
+('Harsh','Tiwari','M','9456701238','harsh.tiwari@example.com','BuildX'),
+('Pooja','Malhotra','F','9321789054','pooja.malhotra@example.com','ShopEase'),
+('Arjun','Das','M','9678123450','arjun.das@example.com','EduPrime'),
+('Simran','Saxena','F','9432109876','simran.saxena@example.com','FoodMart'),
+
+('Yash','Agarwal','M','9345612780','yash.agarwal@example.com','PowerGrid'),
+('Ritika','Menon','F','9212345678','ritika.menon@example.com','MediSys'),
+('Mohit','Chauhan','M','9543210987','mohit.chauhan@example.com','TravelMax'),
+('Tanvi','Bose','F','9786543210','tanvi.bose@example.com','Artify'),
+('Akash','Ghosh','M','9876012345','akash.ghosh@example.com','BuildRight'),
+('Sanya','Mukherjee','F','9321654789','sanya.mukherjee@example.com','EduSmart'),
+('Rahul','Jain','M','9765432180','rahul.jain@example.com','FinCore'),
+('Aditi','Rastogi','F','9123789054','aditi.rastogi@example.com','StyleHub'),
+('Deepak','Verghese','M','9345098123','deepak.verghese@example.com','GreenGrow'),
+('Nisha','Yadav','F','9654321098','nisha.yadav@example.com','ShopSmart'),
+
+('Kunal','Bhatt','M','9789012567','kunal.bhatt@example.com','TechNova'),
+('Shreya','Shetty','F','9567812340','shreya.shetty@example.com','FoodLab'),
+('Varun','Joshi','M','9432106789','varun.joshi@example.com','MediCareX'),
+('Anjali','Trivedi','F','9345678091','anjali.trivedi@example.com','ArtHouse'),
+('Siddharth','Srivastava','M','9212340987','siddharth.srivastava@example.com','TravelEase'),
+('Komal','Dwivedi','F','9543217890','komal.dwivedi@example.com','BuildWell'),
+('Nikhil','Garg','M','9786054321','nikhil.garg@example.com','EduCore'),
+('Swati','Bhattacharya','F','9321789045','swati.bhattacharya@example.com','HealthTrack'),
+('Aman','Chatterjee','M','9765409871','aman.chatterjee@example.com','FoodWorks'),
+('Pallavi','Rajput','F','9654321876','pallavi.rajput@example.com','FinLink'),
+
+('Rajat','Banerjee','M','9345670123','rajat.banerjee@example.com','GreenBase'),
+('Mitali','Khanna','F','9123098765','mitali.khanna@example.com','EduX'),
+('Suresh','Mishra','M','9789012456','suresh.mishra@example.com','AgriFarm'),
+('Tanya','Pathak','F','9432105698','tanya.pathak@example.com','StyleX'),
+('Abhishek','Rawat','M','9567890120','abhishek.rawat@example.com','AutoCare'),
+('Roshni','Sen','F','9876540321','roshni.sen@example.com','TravelGo'),
+('Gaurav','Pandey','M','9654321789','gaurav.pandey@example.com','MediLink'),
+('Divya','Kaur','F','9786543012','divya.kaur@example.com','ShopZone'),
+('Hemant','Naidu','M','9321456098','hemant.naidu@example.com','BuildNext'),
+('Leela','George','F','9765012349','leela.george@example.com','FoodBazaar');
+
+
+/* Create Enum for gender types of M and F*/
+CREATE TYPE sex AS ENUM
+('M','F');
+
+
+/* Update the customer table to use the new enum type */
+ALTER TABLE customer
+ALTER COLUMN sex TYPE sex USING sex::sex;
+

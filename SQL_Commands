@@ -119,6 +119,11 @@ CREATE TABLE sales (
 ALTER TABLE customer
 ADD COLUMN address VARCHAR(100),
 ADD COLUMN city VARCHAR(50),
+ALTER TABLE customer ALTER COLUMN phonenumber TYPE VARCHAR(15);
 
 /* CREATE INDEX */
 CREATE INDEX idx_customer_name ON customer (firstname, lastname);   
+
+
+/* TRUCNCATE */
+TRUNCATE TABLE customer;
